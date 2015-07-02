@@ -133,7 +133,7 @@ namespace IatDteBridge
             OdbcConnection conn = new OdbcConnection(stringConn);
 
             String updateSql = " update cabezalventas " +
-                                " set nro_cargo= " + folioFebos +", id_febos = '"+ febosID +"' " +
+                                " set nro_fiscal= " + folioFebos +", id_febos = '"+ febosID +"' " +
                                 " where cod_empresa=1 and cod_sucursal="+ "1" +" and tipo_cargo="+doc.TipoDTE+" and nro_cargo="+ doc.Folio +
                                 " and nro_abono=0;";
 
