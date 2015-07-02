@@ -1,0 +1,793 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://api.febos.cl/" targetNamespace="http://api.febos.cl/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="create" type="tns:create" />
+  <xs:element name="createFirstUser" type="tns:createFirstUser" />
+  <xs:element name="createFirstUserResponse" type="tns:createFirstUserResponse" />
+  <xs:element name="createResponse" type="tns:createResponse" />
+  <xs:element name="dashboardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="status" type="xs:int" />
+        <xs:element name="error" type="xs:int" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="data">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="empresa">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="rznsocial" type="xs:string" />
+                    <xs:element minOccurs="0" name="rut" type="xs:string" />
+                    <xs:element name="resolucion" type="xs:int" />
+                    <xs:element minOccurs="0" name="fecha" type="xs:string" />
+                    <xs:element name="totale" type="xs:long" />
+                    <xs:element name="totalr" type="xs:long" />
+                    <xs:element name="mese" type="xs:long" />
+                    <xs:element name="mesr" type="xs:long" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="novedad">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="titulo" type="xs:string" />
+                    <xs:element name="fecha" type="xs:string" />
+                    <xs:element name="message" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="graph">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="dato">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="order" type="xs:int" />
+                          <xs:element name="emitidos" type="xs:long" />
+                          <xs:element name="recibidos" type="xs:long" />
+                          <xs:element name="name" type="xs:string" />
+                          <xs:element name="short" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="delete" type="tns:delete" />
+  <xs:element name="deleteResponse" type="tns:deleteResponse" />
+  <xs:element name="getDashboard" type="tns:getDashboard" />
+  <xs:element name="getDashboardResponse" type="tns:getDashboardResponse" />
+  <xs:element name="list" type="tns:list" />
+  <xs:element name="listEmpresas" type="tns:listEmpresas" />
+  <xs:element name="listEmpresasResponse" type="tns:listEmpresasResponse" />
+  <xs:element name="listResponse" type="tns:listResponse" />
+  <xs:element name="listRoles" type="tns:listRoles" />
+  <xs:element name="listRolesResponse" type="tns:listRolesResponse" />
+  <xs:element name="login" type="tns:login" />
+  <xs:element name="loginResponse" type="tns:loginResponse" />
+  <xs:element name="newsletter" type="tns:newsletter" />
+  <xs:element name="newsletterResponse" type="tns:newsletterResponse" />
+  <xs:element name="passwordRecovery" type="tns:passwordRecovery" />
+  <xs:element name="passwordRecoveryResponse" type="tns:passwordRecoveryResponse" />
+  <xs:element name="resetPassword" type="tns:resetPassword" />
+  <xs:element name="resetPasswordResponse" type="tns:resetPasswordResponse" />
+  <xs:element name="standardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="status" type="xs:int" />
+        <xs:element name="error" type="xs:int" />
+        <xs:element minOccurs="0" name="message" type="xs:string" />
+        <xs:element minOccurs="0" name="data">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="variable">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="name" type="xs:string" />
+                    <xs:element name="value" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tableResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="status" type="xs:int" />
+        <xs:element name="error" type="xs:int" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="tableInfo">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="firstPageItem" type="xs:int" />
+              <xs:element name="lastPageItem" type="xs:int" />
+              <xs:element name="totalItems" type="xs:int" />
+              <xs:element name="rowsPerPage" type="xs:int" />
+              <xs:element name="totalPages" type="xs:int" />
+              <xs:element name="actualPage" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tableHeader">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="field" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="data">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="row">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="id" type="xs:string" />
+                    <xs:element maxOccurs="unbounded" name="field" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="update" type="tns:update" />
+  <xs:element name="updateEmpresas" type="tns:updateEmpresas" />
+  <xs:element name="updateEmpresasResponse" type="tns:updateEmpresasResponse" />
+  <xs:element name="updateResponse" type="tns:updateResponse" />
+  <xs:element name="updateRoles" type="tns:updateRoles" />
+  <xs:element name="updateRolesResponse" type="tns:updateRolesResponse" />
+  <xs:element name="view" type="tns:view" />
+  <xs:element name="viewResponse" type="tns:viewResponse" />
+  <xs:complexType name="listEmpresas">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="userId" type="xs:string" />
+      <xs:element minOccurs="0" name="adm" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listEmpresasResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element name="message" type="xs:string" />
+            <xs:element name="tableInfo">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="firstPageItem" type="xs:int" />
+                  <xs:element name="lastPageItem" type="xs:int" />
+                  <xs:element name="totalItems" type="xs:int" />
+                  <xs:element name="rowsPerPage" type="xs:int" />
+                  <xs:element name="totalPages" type="xs:int" />
+                  <xs:element name="actualPage" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="tableHeader">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="field" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="row">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="id" type="xs:string" />
+                        <xs:element maxOccurs="unbounded" name="field" type="xs:string" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createFirstUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="mail" type="xs:string" />
+      <xs:element minOccurs="0" name="password" type="xs:string" />
+      <xs:element minOccurs="0" name="rut" type="xs:string" />
+      <xs:element minOccurs="0" name="cargo" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createFirstUserResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+            <xs:element minOccurs="0" name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="variable">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="name" type="xs:string" />
+                        <xs:element name="value" type="xs:string" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDashboard">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="empresaId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDashboardResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element name="message" type="xs:string" />
+            <xs:element name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="empresa">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="rznsocial" type="xs:string" />
+                        <xs:element minOccurs="0" name="rut" type="xs:string" />
+                        <xs:element name="resolucion" type="xs:int" />
+                        <xs:element minOccurs="0" name="fecha" type="xs:string" />
+                        <xs:element name="totale" type="xs:long" />
+                        <xs:element name="totalr" type="xs:long" />
+                        <xs:element name="mese" type="xs:long" />
+                        <xs:element name="mesr" type="xs:long" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element maxOccurs="unbounded" name="novedad">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="titulo" type="xs:string" />
+                        <xs:element name="fecha" type="xs:string" />
+                        <xs:element name="message" type="xs:string" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="graph">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element maxOccurs="unbounded" name="dato">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="order" type="xs:int" />
+                              <xs:element name="emitidos" type="xs:long" />
+                              <xs:element name="recibidos" type="xs:long" />
+                              <xs:element name="name" type="xs:string" />
+                              <xs:element name="short" type="xs:string" />
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="passwordRecovery">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="mail" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="passwordRecoveryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+            <xs:element minOccurs="0" name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="variable">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="name" type="xs:string" />
+                        <xs:element name="value" type="xs:string" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resetPassword">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="password" type="xs:string" />
+      <xs:element minOccurs="0" name="repassword" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resetPasswordResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+            <xs:element minOccurs="0" name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="variable">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="name" type="xs:string" />
+                        <xs:element name="value" type="xs:string" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="newsletter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="testmail" type="xs:string" />
+      <xs:element minOccurs="0" name="asunto" type="xs:string" />
+      <xs:element minOccurs="0" name="titulo" type="xs:string" />
+      <xs:element minOccurs="0" name="cabecera" type="xs:string" />
+      <xs:element minOccurs="0" name="pie" type="xs:string" />
+      <xs:element minOccurs="0" name="mensaje" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="newsletterResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+            <xs:element minOccurs="0" name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="variable">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="name" type="xs:string" />
+                        <xs:element name="value" type="xs:string" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateEmpresas">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="userId" type="xs:string" />
+      <xs:element minOccurs="0" name="empresaId" type="xs:string" />
+      <xs:element minOccurs="0" name="adm" type="xs:string" />
+      <xs:element minOccurs="0" name="lstAdd" type="xs:string" />
+      <xs:element minOccurs="0" name="lstDel" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateEmpresasResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+            <xs:element minOccurs="0" name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="variable">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="name" type="xs:string" />
+                        <xs:element name="value" type="xs:string" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateRoles">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="userId" type="xs:string" />
+      <xs:element minOccurs="0" name="empresaId" type="xs:string" />
+      <xs:element minOccurs="0" name="adm" type="xs:string" />
+      <xs:element minOccurs="0" name="lstAdd" type="xs:string" />
+      <xs:element minOccurs="0" name="lstDel" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateRolesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+            <xs:element minOccurs="0" name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="variable">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="name" type="xs:string" />
+                        <xs:element name="value" type="xs:string" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="login">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="mail" type="xs:string" />
+      <xs:element minOccurs="0" name="pass" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="loginResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+            <xs:element minOccurs="0" name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="variable">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="name" type="xs:string" />
+                        <xs:element name="value" type="xs:string" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="list">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element name="page" type="xs:int" />
+      <xs:element name="rowsPerPage" type="xs:int" />
+      <xs:element minOccurs="0" name="nameFilter" type="xs:string" />
+      <xs:element minOccurs="0" name="mailFilter" type="xs:string" />
+      <xs:element minOccurs="0" name="cargoFilter" type="xs:string" />
+      <xs:element name="estadoFilter" type="xs:int" />
+      <xs:element minOccurs="0" name="rutFilter" type="xs:string" />
+      <xs:element minOccurs="0" name="empresaId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element name="message" type="xs:string" />
+            <xs:element name="tableInfo">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="firstPageItem" type="xs:int" />
+                  <xs:element name="lastPageItem" type="xs:int" />
+                  <xs:element name="totalItems" type="xs:int" />
+                  <xs:element name="rowsPerPage" type="xs:int" />
+                  <xs:element name="totalPages" type="xs:int" />
+                  <xs:element name="actualPage" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="tableHeader">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="field" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="row">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="id" type="xs:string" />
+                        <xs:element maxOccurs="unbounded" name="field" type="xs:string" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="delete">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="userId" type="xs:string" />
+      <xs:element minOccurs="0" name="empresaId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deleteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+            <xs:element minOccurs="0" name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="variable">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="name" type="xs:string" />
+                        <xs:element name="value" type="xs:string" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listRoles">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="adm" type="xs:string" />
+      <xs:element minOccurs="0" name="empresaId" type="xs:string" />
+      <xs:element minOccurs="0" name="userId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listRolesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element name="message" type="xs:string" />
+            <xs:element name="tableInfo">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="firstPageItem" type="xs:int" />
+                  <xs:element name="lastPageItem" type="xs:int" />
+                  <xs:element name="totalItems" type="xs:int" />
+                  <xs:element name="rowsPerPage" type="xs:int" />
+                  <xs:element name="totalPages" type="xs:int" />
+                  <xs:element name="actualPage" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="tableHeader">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="field" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="row">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="id" type="xs:string" />
+                        <xs:element maxOccurs="unbounded" name="field" type="xs:string" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="update">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="userId" type="xs:string" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="mail" type="xs:string" />
+      <xs:element minOccurs="0" name="currentPass" type="xs:string" />
+      <xs:element minOccurs="0" name="password" type="xs:string" />
+      <xs:element minOccurs="0" name="repassword" type="xs:string" />
+      <xs:element minOccurs="0" name="rut" type="xs:string" />
+      <xs:element minOccurs="0" name="cargo" type="xs:string" />
+      <xs:element name="estado" type="xs:int" />
+      <xs:element minOccurs="0" name="empresaId" type="xs:string" />
+      <xs:element name="fromUserAdm" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+            <xs:element minOccurs="0" name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="variable">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="name" type="xs:string" />
+                        <xs:element name="value" type="xs:string" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="view">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="userId" type="xs:string" />
+      <xs:element minOccurs="0" name="empresaId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="viewResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+            <xs:element minOccurs="0" name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="variable">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="name" type="xs:string" />
+                        <xs:element name="value" type="xs:string" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="create">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="mail" type="xs:string" />
+      <xs:element minOccurs="0" name="password" type="xs:string" />
+      <xs:element minOccurs="0" name="repassword" type="xs:string" />
+      <xs:element minOccurs="0" name="rut" type="xs:string" />
+      <xs:element minOccurs="0" name="cargo" type="xs:string" />
+      <xs:element minOccurs="0" name="empresaId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+            <xs:element minOccurs="0" name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="variable">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="name" type="xs:string" />
+                        <xs:element name="value" type="xs:string" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

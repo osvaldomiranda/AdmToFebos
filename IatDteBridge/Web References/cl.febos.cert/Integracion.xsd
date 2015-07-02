@@ -1,0 +1,1037 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://api.febos.cl/" targetNamespace="http://api.febos.cl/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="DTE">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Documento">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Encabezado">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="IdDoc">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="TipoDTE" type="xs:positiveInteger" />
+                          <xs:element name="Folio" type="xs:positiveInteger" />
+                          <xs:element name="FchEmis" type="xs:date" />
+                          <xs:element name="IndServicio" type="xs:integer" />
+                          <xs:element minOccurs="0" name="IndMntNeto" type="xs:integer" />
+                          <xs:element minOccurs="0" name="PeriodoDesde" type="xs:date" />
+                          <xs:element minOccurs="0" name="PeriodoHasta" type="xs:date" />
+                          <xs:element minOccurs="0" name="FchVenc" type="xs:date" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Emisor">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="RUTEmisor" type="xs:string" />
+                          <xs:element minOccurs="0" name="RznSocEmisor" type="xs:string" />
+                          <xs:element minOccurs="0" name="GiroEmisor" type="xs:string" />
+                          <xs:element minOccurs="0" name="CdgSIISucur" type="xs:integer" />
+                          <xs:element minOccurs="0" name="DirOrigen" type="xs:string" />
+                          <xs:element minOccurs="0" name="CmnaOrigen" type="xs:string" />
+                          <xs:element minOccurs="0" name="CiudadOrigen" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Receptor">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="RUTRecep" type="xs:string" />
+                          <xs:element minOccurs="0" name="CdgIntRecep" type="xs:string" />
+                          <xs:element minOccurs="0" name="RznSocRecep" type="xs:string" />
+                          <xs:element minOccurs="0" name="Contacto" type="xs:string" />
+                          <xs:element minOccurs="0" name="DirRecep" type="xs:string" />
+                          <xs:element minOccurs="0" name="CmnaRecep" type="xs:string" />
+                          <xs:element minOccurs="0" name="CiudadRecep" type="xs:string" />
+                          <xs:element minOccurs="0" name="DirPostal" type="xs:string" />
+                          <xs:element minOccurs="0" name="CmnaPostal" type="xs:string" />
+                          <xs:element minOccurs="0" name="CiudadPostal" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Totales">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" name="MntNeto" type="xs:nonNegativeInteger" />
+                          <xs:element minOccurs="0" name="MntExe" type="xs:nonNegativeInteger" />
+                          <xs:element minOccurs="0" name="IVA" type="xs:positiveInteger" />
+                          <xs:element name="MntTotal" type="xs:nonNegativeInteger" />
+                          <xs:element minOccurs="0" name="MontoNF" type="xs:integer" />
+                          <xs:element minOccurs="0" name="TotalPeriodo" type="xs:nonNegativeInteger" />
+                          <xs:element minOccurs="0" name="SaldoAnterior" type="xs:integer" />
+                          <xs:element minOccurs="0" name="VlrPagar" type="xs:integer" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="Detalle">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="NroLinDet" type="xs:positiveInteger" />
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="CdgItem">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="TpoCodigo" type="xs:string" />
+                          <xs:element name="VlrCodigo" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="IndExe" type="xs:integer" />
+                    <xs:element minOccurs="0" name="ItemEspectaculo" type="xs:int" />
+                    <xs:element minOccurs="0" name="RUTMandante" type="xs:string" />
+                    <xs:element name="NmbItem" type="xs:string" />
+                    <xs:element minOccurs="0" name="InfoTicket">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="FolioTicket" type="xs:integer" />
+                          <xs:element name="FchGenera" type="xs:anySimpleType" />
+                          <xs:element name="NmbEvento" type="xs:string" />
+                          <xs:element name="TpoTiket" type="xs:string" />
+                          <xs:element name="CdgEvento" type="xs:string" />
+                          <xs:element name="FchEvento" type="xs:anySimpleType" />
+                          <xs:element name="LugarEvento" type="xs:string" />
+                          <xs:element name="UbicEvento" type="xs:string" />
+                          <xs:element minOccurs="0" name="FilaUbicEvento" type="xs:string" />
+                          <xs:element minOccurs="0" name="AsntoUbicEvento" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="DscItem" type="xs:string" />
+                    <xs:element minOccurs="0" name="QtyItem" type="xs:decimal" />
+                    <xs:element minOccurs="0" name="UnmdItem" type="xs:string" />
+                    <xs:element minOccurs="0" name="PrcItem" type="xs:decimal" />
+                    <xs:element minOccurs="0" name="DescuentoPct" type="xs:decimal" />
+                    <xs:element minOccurs="0" name="DescuentoMonto" type="xs:integer" />
+                    <xs:element minOccurs="0" name="RecargoPct" type="xs:decimal" />
+                    <xs:element minOccurs="0" name="RecargoMonto" type="xs:integer" />
+                    <xs:element name="MontoItem" type="xs:nonNegativeInteger" />
+                    <xs:element minOccurs="0" name="Febos">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" maxOccurs="unbounded" name="Custom" type="xs:string" />
+                          <xs:element minOccurs="0" name="Extended" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="SubTotInfo">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="NroSTI" type="xs:int" />
+                    <xs:element minOccurs="0" name="GlosaSTI" type="xs:string" />
+                    <xs:element name="OrdenSTI" type="xs:int" />
+                    <xs:element minOccurs="0" name="SubTotNetoSTI" type="xs:decimal" />
+                    <xs:element minOccurs="0" name="SubTotIVASTI" type="xs:decimal" />
+                    <xs:element minOccurs="0" name="SubTotAdicSTI" type="xs:decimal" />
+                    <xs:element minOccurs="0" name="SubTotExeSTI" type="xs:decimal" />
+                    <xs:element minOccurs="0" name="ValSubtotSTI" type="xs:decimal" />
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="LineasDeta" type="xs:int" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="DscRcgGlobal">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="NroLinDR" type="xs:int" />
+                    <xs:element name="TpoMov" type="xs:string" />
+                    <xs:element minOccurs="0" name="GlosaDR" type="xs:string" />
+                    <xs:element name="TpoValor" type="xs:string" />
+                    <xs:element name="ValorDR" type="xs:decimal" />
+                    <xs:element minOccurs="0" name="IndExeDR" type="xs:integer" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Referencia">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="NroLinRef" type="xs:int" />
+                    <xs:element minOccurs="0" name="CodRef" type="xs:string" />
+                    <xs:element minOccurs="0" name="RazonRef" type="xs:string" />
+                    <xs:element minOccurs="0" name="CodVndor" type="xs:string" />
+                    <xs:element minOccurs="0" name="CodCaja" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="Febos">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="customField" nillable="true">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="name" type="xs:string" />
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FolioStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="status" type="xs:int" />
+        <xs:element name="error" type="xs:int" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="data">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="folioInfo">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="tipoDte" type="xs:int" />
+                    <xs:element name="total" type="xs:long" />
+                    <xs:element name="usados" type="xs:long" />
+                    <xs:element name="libres" type="xs:long" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TrackingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="error" type="xs:anyType" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="message" type="xs:anyType" />
+        <xs:element maxOccurs="unbounded" name="Record">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="number" type="xs:int" />
+              <xs:element name="date" type="xs:string" />
+              <xs:element name="code" type="xs:int" />
+              <xs:element name="message" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDteInfo" type="tns:getDteInfo" />
+  <xs:element name="getDteInfoRTF" type="tns:getDteInfoRTF" />
+  <xs:element name="getDteInfoRTFResponse" type="tns:getDteInfoRTFResponse" />
+  <xs:element name="getDteInfoResponse" type="tns:getDteInfoResponse" />
+  <xs:element name="getDteStatus" type="tns:getDteStatus" />
+  <xs:element name="getDteStatusResponse" type="tns:getDteStatusResponse" />
+  <xs:element name="getDteTracking" type="tns:getDteTracking" />
+  <xs:element name="getDteTrackingResponse" type="tns:getDteTrackingResponse" />
+  <xs:element name="getFoliosInfo" type="tns:getFoliosInfo" />
+  <xs:element name="getFoliosInfoResponse" type="tns:getFoliosInfoResponse" />
+  <xs:element name="getPdf" type="tns:getPdf" />
+  <xs:element name="getPdfById" type="tns:getPdfById" />
+  <xs:element name="getPdfByIdResponse" type="tns:getPdfByIdResponse" />
+  <xs:element name="getPdfLink" type="tns:getPdfLink" />
+  <xs:element name="getPdfLinkById" type="tns:getPdfLinkById" />
+  <xs:element name="getPdfLinkByIdResponse" type="tns:getPdfLinkByIdResponse" />
+  <xs:element name="getPdfLinkResponse" type="tns:getPdfLinkResponse" />
+  <xs:element name="getPdfResponse" type="tns:getPdfResponse" />
+  <xs:element name="getXml" type="tns:getXml" />
+  <xs:element name="getXmlById" type="tns:getXmlById" />
+  <xs:element name="getXmlByIdResponse" type="tns:getXmlByIdResponse" />
+  <xs:element name="getXmlResponse" type="tns:getXmlResponse" />
+  <xs:element name="integracionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="status" type="xs:int" />
+        <xs:element name="error" type="xs:int" />
+        <xs:element minOccurs="0" name="message" type="xs:string" />
+        <xs:element minOccurs="0" name="febosid" type="xs:string" />
+        <xs:element minOccurs="0" name="data">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="variable">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="name" type="xs:anyType" />
+                    <xs:element name="value" type="xs:anyType" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sendMail" type="tns:sendMail" />
+  <xs:element name="sendMailResponse" type="tns:sendMailResponse" />
+  <xs:element name="uploadBoleta" type="tns:uploadBoleta" />
+  <xs:element name="uploadBoletaResponse" type="tns:uploadBoletaResponse" />
+  <xs:element name="uploadDte" type="tns:uploadDte" />
+  <xs:element name="uploadDteResponse" type="tns:uploadDteResponse" />
+  <xs:element name="uploadTxtDte" type="tns:uploadTxtDte" />
+  <xs:element name="uploadTxtDte2" type="tns:uploadTxtDte2" />
+  <xs:element name="uploadTxtDte2Response" type="tns:uploadTxtDte2Response" />
+  <xs:element name="uploadTxtDteResponse" type="tns:uploadTxtDteResponse" />
+  <xs:complexType name="getPdfById">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="xs:string" />
+      <xs:element name="type" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getPdfByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+            <xs:element minOccurs="0" name="febosid" type="xs:string" />
+            <xs:element minOccurs="0" name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="variable">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="name" type="xs:anyType" />
+                        <xs:element name="value" type="xs:anyType" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDteInfoRTF">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="rut" type="xs:string" />
+      <xs:element name="tipo" type="xs:int" />
+      <xs:element name="folio" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDteInfoRTFResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+            <xs:element minOccurs="0" name="febosid" type="xs:string" />
+            <xs:element minOccurs="0" name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="variable">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="name" type="xs:anyType" />
+                        <xs:element name="value" type="xs:anyType" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="uploadBoleta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="boleta">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Documento">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Encabezado">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="IdDoc">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="TipoDTE" type="xs:positiveInteger" />
+                              <xs:element name="Folio" type="xs:positiveInteger" />
+                              <xs:element name="FchEmis" type="xs:date" />
+                              <xs:element name="IndServicio" type="xs:integer" />
+                              <xs:element minOccurs="0" name="IndMntNeto" type="xs:integer" />
+                              <xs:element minOccurs="0" name="PeriodoDesde" type="xs:date" />
+                              <xs:element minOccurs="0" name="PeriodoHasta" type="xs:date" />
+                              <xs:element minOccurs="0" name="FchVenc" type="xs:date" />
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="Emisor">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="RUTEmisor" type="xs:string" />
+                              <xs:element minOccurs="0" name="RznSocEmisor" type="xs:string" />
+                              <xs:element minOccurs="0" name="GiroEmisor" type="xs:string" />
+                              <xs:element minOccurs="0" name="CdgSIISucur" type="xs:integer" />
+                              <xs:element minOccurs="0" name="DirOrigen" type="xs:string" />
+                              <xs:element minOccurs="0" name="CmnaOrigen" type="xs:string" />
+                              <xs:element minOccurs="0" name="CiudadOrigen" type="xs:string" />
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="Receptor">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="RUTRecep" type="xs:string" />
+                              <xs:element minOccurs="0" name="CdgIntRecep" type="xs:string" />
+                              <xs:element minOccurs="0" name="RznSocRecep" type="xs:string" />
+                              <xs:element minOccurs="0" name="Contacto" type="xs:string" />
+                              <xs:element minOccurs="0" name="DirRecep" type="xs:string" />
+                              <xs:element minOccurs="0" name="CmnaRecep" type="xs:string" />
+                              <xs:element minOccurs="0" name="CiudadRecep" type="xs:string" />
+                              <xs:element minOccurs="0" name="DirPostal" type="xs:string" />
+                              <xs:element minOccurs="0" name="CmnaPostal" type="xs:string" />
+                              <xs:element minOccurs="0" name="CiudadPostal" type="xs:string" />
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="Totales">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="0" name="MntNeto" type="xs:nonNegativeInteger" />
+                              <xs:element minOccurs="0" name="MntExe" type="xs:nonNegativeInteger" />
+                              <xs:element minOccurs="0" name="IVA" type="xs:positiveInteger" />
+                              <xs:element name="MntTotal" type="xs:nonNegativeInteger" />
+                              <xs:element minOccurs="0" name="MontoNF" type="xs:integer" />
+                              <xs:element minOccurs="0" name="TotalPeriodo" type="xs:nonNegativeInteger" />
+                              <xs:element minOccurs="0" name="SaldoAnterior" type="xs:integer" />
+                              <xs:element minOccurs="0" name="VlrPagar" type="xs:integer" />
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element maxOccurs="unbounded" name="Detalle">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="NroLinDet" type="xs:positiveInteger" />
+                        <xs:element minOccurs="0" maxOccurs="unbounded" name="CdgItem">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="TpoCodigo" type="xs:string" />
+                              <xs:element name="VlrCodigo" type="xs:string" />
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="IndExe" type="xs:integer" />
+                        <xs:element minOccurs="0" name="ItemEspectaculo" type="xs:int" />
+                        <xs:element minOccurs="0" name="RUTMandante" type="xs:string" />
+                        <xs:element name="NmbItem" type="xs:string" />
+                        <xs:element minOccurs="0" name="InfoTicket">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="FolioTicket" type="xs:integer" />
+                              <xs:element name="FchGenera" type="xs:anySimpleType" />
+                              <xs:element name="NmbEvento" type="xs:string" />
+                              <xs:element name="TpoTiket" type="xs:string" />
+                              <xs:element name="CdgEvento" type="xs:string" />
+                              <xs:element name="FchEvento" type="xs:anySimpleType" />
+                              <xs:element name="LugarEvento" type="xs:string" />
+                              <xs:element name="UbicEvento" type="xs:string" />
+                              <xs:element minOccurs="0" name="FilaUbicEvento" type="xs:string" />
+                              <xs:element minOccurs="0" name="AsntoUbicEvento" type="xs:string" />
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="DscItem" type="xs:string" />
+                        <xs:element minOccurs="0" name="QtyItem" type="xs:decimal" />
+                        <xs:element minOccurs="0" name="UnmdItem" type="xs:string" />
+                        <xs:element minOccurs="0" name="PrcItem" type="xs:decimal" />
+                        <xs:element minOccurs="0" name="DescuentoPct" type="xs:decimal" />
+                        <xs:element minOccurs="0" name="DescuentoMonto" type="xs:integer" />
+                        <xs:element minOccurs="0" name="RecargoPct" type="xs:decimal" />
+                        <xs:element minOccurs="0" name="RecargoMonto" type="xs:integer" />
+                        <xs:element name="MontoItem" type="xs:nonNegativeInteger" />
+                        <xs:element minOccurs="0" name="Febos">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="0" maxOccurs="unbounded" name="Custom" type="xs:string" />
+                              <xs:element minOccurs="0" name="Extended" type="xs:string" />
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" maxOccurs="unbounded" name="SubTotInfo">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="NroSTI" type="xs:int" />
+                        <xs:element minOccurs="0" name="GlosaSTI" type="xs:string" />
+                        <xs:element name="OrdenSTI" type="xs:int" />
+                        <xs:element minOccurs="0" name="SubTotNetoSTI" type="xs:decimal" />
+                        <xs:element minOccurs="0" name="SubTotIVASTI" type="xs:decimal" />
+                        <xs:element minOccurs="0" name="SubTotAdicSTI" type="xs:decimal" />
+                        <xs:element minOccurs="0" name="SubTotExeSTI" type="xs:decimal" />
+                        <xs:element minOccurs="0" name="ValSubtotSTI" type="xs:decimal" />
+                        <xs:element minOccurs="0" maxOccurs="unbounded" name="LineasDeta" type="xs:int" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" maxOccurs="unbounded" name="DscRcgGlobal">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="NroLinDR" type="xs:int" />
+                        <xs:element name="TpoMov" type="xs:string" />
+                        <xs:element minOccurs="0" name="GlosaDR" type="xs:string" />
+                        <xs:element name="TpoValor" type="xs:string" />
+                        <xs:element name="ValorDR" type="xs:decimal" />
+                        <xs:element minOccurs="0" name="IndExeDR" type="xs:integer" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" maxOccurs="unbounded" name="Referencia">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="NroLinRef" type="xs:int" />
+                        <xs:element minOccurs="0" name="CodRef" type="xs:string" />
+                        <xs:element minOccurs="0" name="RazonRef" type="xs:string" />
+                        <xs:element minOccurs="0" name="CodVndor" type="xs:string" />
+                        <xs:element minOccurs="0" name="CodCaja" type="xs:string" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="Febos">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="unbounded" name="customField" nillable="true">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute name="name" type="xs:string" />
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="internalId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="uploadBoletaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+            <xs:element minOccurs="0" name="febosid" type="xs:string" />
+            <xs:element minOccurs="0" name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="variable">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="name" type="xs:anyType" />
+                        <xs:element name="value" type="xs:anyType" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDteInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="febosid" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDteInfoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+            <xs:element minOccurs="0" name="febosid" type="xs:string" />
+            <xs:element minOccurs="0" name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="variable">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="name" type="xs:anyType" />
+                        <xs:element name="value" type="xs:anyType" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="uploadDte">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="data" type="xs:string" />
+      <xs:element name="historico" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="uploadDteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+            <xs:element minOccurs="0" name="febosid" type="xs:string" />
+            <xs:element minOccurs="0" name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="variable">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="name" type="xs:anyType" />
+                        <xs:element name="value" type="xs:anyType" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDteStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="febosid" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDteStatusResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+            <xs:element minOccurs="0" name="febosid" type="xs:string" />
+            <xs:element minOccurs="0" name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="variable">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="name" type="xs:anyType" />
+                        <xs:element name="value" type="xs:anyType" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sendMail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="empresaId" type="xs:string" />
+      <xs:element minOccurs="0" name="documentId" type="xs:string" />
+      <xs:element minOccurs="0" name="mailDestino" type="xs:string" />
+      <xs:element minOccurs="0" name="asunto" type="xs:string" />
+      <xs:element minOccurs="0" name="mensaje" type="xs:string" />
+      <xs:element minOccurs="0" name="adjuntar" type="xs:string" />
+      <xs:element name="sendPdf" type="xs:boolean" />
+      <xs:element name="sendPdfCedible" type="xs:boolean" />
+      <xs:element name="sendXml" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sendMailResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+            <xs:element minOccurs="0" name="febosid" type="xs:string" />
+            <xs:element minOccurs="0" name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="variable">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="name" type="xs:anyType" />
+                        <xs:element name="value" type="xs:anyType" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="uploadTxtDte2">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="data" type="xs:string" />
+      <xs:element minOccurs="0" name="internalId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="uploadTxtDte2Response">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+            <xs:element minOccurs="0" name="febosid" type="xs:string" />
+            <xs:element minOccurs="0" name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="variable">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="name" type="xs:anyType" />
+                        <xs:element name="value" type="xs:anyType" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getXml">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="febosid" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getXmlResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+            <xs:element minOccurs="0" name="febosid" type="xs:string" />
+            <xs:element minOccurs="0" name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="variable">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="name" type="xs:anyType" />
+                        <xs:element name="value" type="xs:anyType" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="uploadTxtDte">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="data" type="xs:string" />
+      <xs:element minOccurs="0" name="internalId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="uploadTxtDteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+            <xs:element minOccurs="0" name="febosid" type="xs:string" />
+            <xs:element minOccurs="0" name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="variable">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="name" type="xs:anyType" />
+                        <xs:element name="value" type="xs:anyType" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getPdf">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="febosid" type="xs:string" />
+      <xs:element name="type" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getPdfResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+            <xs:element minOccurs="0" name="febosid" type="xs:string" />
+            <xs:element minOccurs="0" name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="variable">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="name" type="xs:anyType" />
+                        <xs:element name="value" type="xs:anyType" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getFoliosInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="rut" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getFoliosInfoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element name="message" type="xs:string" />
+            <xs:element name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="folioInfo">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="tipoDte" type="xs:int" />
+                        <xs:element name="total" type="xs:long" />
+                        <xs:element name="usados" type="xs:long" />
+                        <xs:element name="libres" type="xs:long" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDteTracking">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="empresaId" type="xs:string" />
+      <xs:element minOccurs="0" name="febosId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDteTrackingResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="error" type="xs:anyType" />
+            <xs:element name="status" type="xs:anyType" />
+            <xs:element name="message" type="xs:anyType" />
+            <xs:element maxOccurs="unbounded" name="Record">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="number" type="xs:int" />
+                  <xs:element name="date" type="xs:string" />
+                  <xs:element name="code" type="xs:int" />
+                  <xs:element name="message" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getPdfLinkById">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="xs:string" />
+      <xs:element name="type" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getPdfLinkByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+            <xs:element minOccurs="0" name="febosid" type="xs:string" />
+            <xs:element minOccurs="0" name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="variable">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="name" type="xs:anyType" />
+                        <xs:element name="value" type="xs:anyType" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getXmlById">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getXmlByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+            <xs:element minOccurs="0" name="febosid" type="xs:string" />
+            <xs:element minOccurs="0" name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="variable">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="name" type="xs:anyType" />
+                        <xs:element name="value" type="xs:anyType" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getPdfLink">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="xs:string" />
+      <xs:element minOccurs="0" name="febosid" type="xs:string" />
+      <xs:element name="type" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getPdfLinkResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int" />
+            <xs:element name="error" type="xs:int" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+            <xs:element minOccurs="0" name="febosid" type="xs:string" />
+            <xs:element minOccurs="0" name="data">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="variable">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="name" type="xs:anyType" />
+                        <xs:element name="value" type="xs:anyType" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

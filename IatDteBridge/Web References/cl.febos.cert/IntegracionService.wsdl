@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://api.febos.cl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="IntegracionService" targetNamespace="http://api.febos.cl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://cert.febos.cl:80/FebosAPI/Integracion?xsd=1" namespace="http://api.febos.cl/" />
+    </xsd:schema>
+  </types>
+  <message name="getFoliosInfo">
+    <part name="parameters" element="tns:getFoliosInfo" />
+  </message>
+  <message name="getFoliosInfoResponse">
+    <part name="parameters" element="tns:getFoliosInfoResponse" />
+  </message>
+  <message name="getDteTracking">
+    <part name="parameters" element="tns:getDteTracking" />
+  </message>
+  <message name="getDteTrackingResponse">
+    <part name="parameters" element="tns:getDteTrackingResponse" />
+  </message>
+  <message name="getXmlById">
+    <part name="parameters" element="tns:getXmlById" />
+  </message>
+  <message name="getXmlByIdResponse">
+    <part name="parameters" element="tns:getXmlByIdResponse" />
+  </message>
+  <message name="uploadBoleta">
+    <part name="parameters" element="tns:uploadBoleta" />
+  </message>
+  <message name="uploadBoletaResponse">
+    <part name="parameters" element="tns:uploadBoletaResponse" />
+  </message>
+  <message name="uploadTxtDte2">
+    <part name="parameters" element="tns:uploadTxtDte2" />
+  </message>
+  <message name="uploadTxtDte2Response">
+    <part name="parameters" element="tns:uploadTxtDte2Response" />
+  </message>
+  <message name="getPdf">
+    <part name="parameters" element="tns:getPdf" />
+  </message>
+  <message name="getPdfResponse">
+    <part name="parameters" element="tns:getPdfResponse" />
+  </message>
+  <message name="getPdfById">
+    <part name="parameters" element="tns:getPdfById" />
+  </message>
+  <message name="getPdfByIdResponse">
+    <part name="parameters" element="tns:getPdfByIdResponse" />
+  </message>
+  <message name="getDteInfo">
+    <part name="parameters" element="tns:getDteInfo" />
+  </message>
+  <message name="getDteInfoResponse">
+    <part name="parameters" element="tns:getDteInfoResponse" />
+  </message>
+  <message name="getDteInfoRTF">
+    <part name="parameters" element="tns:getDteInfoRTF" />
+  </message>
+  <message name="getDteInfoRTFResponse">
+    <part name="parameters" element="tns:getDteInfoRTFResponse" />
+  </message>
+  <message name="getPdfLink">
+    <part name="parameters" element="tns:getPdfLink" />
+  </message>
+  <message name="getPdfLinkResponse">
+    <part name="parameters" element="tns:getPdfLinkResponse" />
+  </message>
+  <message name="getPdfLinkById">
+    <part name="parameters" element="tns:getPdfLinkById" />
+  </message>
+  <message name="getPdfLinkByIdResponse">
+    <part name="parameters" element="tns:getPdfLinkByIdResponse" />
+  </message>
+  <message name="getDteStatus">
+    <part name="parameters" element="tns:getDteStatus" />
+  </message>
+  <message name="getDteStatusResponse">
+    <part name="parameters" element="tns:getDteStatusResponse" />
+  </message>
+  <message name="sendMail">
+    <part name="parameters" element="tns:sendMail" />
+  </message>
+  <message name="sendMailResponse">
+    <part name="parameters" element="tns:sendMailResponse" />
+  </message>
+  <message name="getXml">
+    <part name="parameters" element="tns:getXml" />
+  </message>
+  <message name="getXmlResponse">
+    <part name="parameters" element="tns:getXmlResponse" />
+  </message>
+  <message name="uploadDte">
+    <part name="parameters" element="tns:uploadDte" />
+  </message>
+  <message name="uploadDteResponse">
+    <part name="parameters" element="tns:uploadDteResponse" />
+  </message>
+  <message name="uploadTxtDte">
+    <part name="parameters" element="tns:uploadTxtDte" />
+  </message>
+  <message name="uploadTxtDteResponse">
+    <part name="parameters" element="tns:uploadTxtDteResponse" />
+  </message>
+  <portType name="Integracion">
+    <operation name="getFoliosInfo">
+      <input wsam:Action="http://api.febos.cl/Integracion/getFoliosInfoRequest" message="tns:getFoliosInfo" />
+      <output wsam:Action="http://api.febos.cl/Integracion/getFoliosInfoResponse" message="tns:getFoliosInfoResponse" />
+    </operation>
+    <operation name="getDteTracking">
+      <input wsam:Action="http://api.febos.cl/Integracion/getDteTrackingRequest" message="tns:getDteTracking" />
+      <output wsam:Action="http://api.febos.cl/Integracion/getDteTrackingResponse" message="tns:getDteTrackingResponse" />
+    </operation>
+    <operation name="getXmlById">
+      <input wsam:Action="http://api.febos.cl/Integracion/getXmlByIdRequest" message="tns:getXmlById" />
+      <output wsam:Action="http://api.febos.cl/Integracion/getXmlByIdResponse" message="tns:getXmlByIdResponse" />
+    </operation>
+    <operation name="uploadBoleta">
+      <input wsam:Action="http://api.febos.cl/Integracion/uploadBoletaRequest" message="tns:uploadBoleta" />
+      <output wsam:Action="http://api.febos.cl/Integracion/uploadBoletaResponse" message="tns:uploadBoletaResponse" />
+    </operation>
+    <operation name="uploadTxtDte2">
+      <input wsam:Action="http://api.febos.cl/Integracion/uploadTxtDte2Request" message="tns:uploadTxtDte2" />
+      <output wsam:Action="http://api.febos.cl/Integracion/uploadTxtDte2Response" message="tns:uploadTxtDte2Response" />
+    </operation>
+    <operation name="getPdf">
+      <input wsam:Action="http://api.febos.cl/Integracion/getPdfRequest" message="tns:getPdf" />
+      <output wsam:Action="http://api.febos.cl/Integracion/getPdfResponse" message="tns:getPdfResponse" />
+    </operation>
+    <operation name="getPdfById">
+      <input wsam:Action="http://api.febos.cl/Integracion/getPdfByIdRequest" message="tns:getPdfById" />
+      <output wsam:Action="http://api.febos.cl/Integracion/getPdfByIdResponse" message="tns:getPdfByIdResponse" />
+    </operation>
+    <operation name="getDteInfo">
+      <input wsam:Action="http://api.febos.cl/Integracion/getDteInfoRequest" message="tns:getDteInfo" />
+      <output wsam:Action="http://api.febos.cl/Integracion/getDteInfoResponse" message="tns:getDteInfoResponse" />
+    </operation>
+    <operation name="getDteInfoRTF">
+      <input wsam:Action="http://api.febos.cl/Integracion/getDteInfoRTFRequest" message="tns:getDteInfoRTF" />
+      <output wsam:Action="http://api.febos.cl/Integracion/getDteInfoRTFResponse" message="tns:getDteInfoRTFResponse" />
+    </operation>
+    <operation name="getPdfLink">
+      <input wsam:Action="http://api.febos.cl/Integracion/getPdfLinkRequest" message="tns:getPdfLink" />
+      <output wsam:Action="http://api.febos.cl/Integracion/getPdfLinkResponse" message="tns:getPdfLinkResponse" />
+    </operation>
+    <operation name="getPdfLinkById">
+      <input wsam:Action="http://api.febos.cl/Integracion/getPdfLinkByIdRequest" message="tns:getPdfLinkById" />
+      <output wsam:Action="http://api.febos.cl/Integracion/getPdfLinkByIdResponse" message="tns:getPdfLinkByIdResponse" />
+    </operation>
+    <operation name="getDteStatus">
+      <input wsam:Action="http://api.febos.cl/Integracion/getDteStatusRequest" message="tns:getDteStatus" />
+      <output wsam:Action="http://api.febos.cl/Integracion/getDteStatusResponse" message="tns:getDteStatusResponse" />
+    </operation>
+    <operation name="sendMail">
+      <input wsam:Action="http://api.febos.cl/Integracion/sendMailRequest" message="tns:sendMail" />
+      <output wsam:Action="http://api.febos.cl/Integracion/sendMailResponse" message="tns:sendMailResponse" />
+    </operation>
+    <operation name="getXml">
+      <input wsam:Action="http://api.febos.cl/Integracion/getXmlRequest" message="tns:getXml" />
+      <output wsam:Action="http://api.febos.cl/Integracion/getXmlResponse" message="tns:getXmlResponse" />
+    </operation>
+    <operation name="uploadDte">
+      <input wsam:Action="http://api.febos.cl/Integracion/uploadDteRequest" message="tns:uploadDte" />
+      <output wsam:Action="http://api.febos.cl/Integracion/uploadDteResponse" message="tns:uploadDteResponse" />
+    </operation>
+    <operation name="uploadTxtDte">
+      <input wsam:Action="http://api.febos.cl/Integracion/uploadTxtDteRequest" message="tns:uploadTxtDte" />
+      <output wsam:Action="http://api.febos.cl/Integracion/uploadTxtDteResponse" message="tns:uploadTxtDteResponse" />
+    </operation>
+  </portType>
+  <binding name="IntegracionPortBinding" type="tns:Integracion">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getFoliosInfo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getDteTracking">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getXmlById">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="uploadBoleta">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="uploadTxtDte2">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getPdf">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getPdfById">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getDteInfo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getDteInfoRTF">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getPdfLink">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getPdfLinkById">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getDteStatus">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="sendMail">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getXml">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="uploadDte">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="uploadTxtDte">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="IntegracionService">
+    <port name="IntegracionPort" binding="tns:IntegracionPortBinding">
+      <soap:address location="http://cert.febos.cl:80/FebosAPI/Integracion" />
+    </port>
+  </service>
+</definitions>

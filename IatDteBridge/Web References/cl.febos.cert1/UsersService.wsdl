@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://api.febos.cl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="UsersService" targetNamespace="http://api.febos.cl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://cert.febos.cl:80/FebosAPI/Users?xsd=1" namespace="http://api.febos.cl/" />
+    </xsd:schema>
+  </types>
+  <message name="createFirstUser">
+    <part name="parameters" element="tns:createFirstUser" />
+  </message>
+  <message name="createFirstUserResponse">
+    <part name="parameters" element="tns:createFirstUserResponse" />
+  </message>
+  <message name="passwordRecovery">
+    <part name="parameters" element="tns:passwordRecovery" />
+  </message>
+  <message name="passwordRecoveryResponse">
+    <part name="parameters" element="tns:passwordRecoveryResponse" />
+  </message>
+  <message name="resetPassword">
+    <part name="parameters" element="tns:resetPassword" />
+  </message>
+  <message name="resetPasswordResponse">
+    <part name="parameters" element="tns:resetPasswordResponse" />
+  </message>
+  <message name="getDashboard">
+    <part name="parameters" element="tns:getDashboard" />
+  </message>
+  <message name="getDashboardResponse">
+    <part name="parameters" element="tns:getDashboardResponse" />
+  </message>
+  <message name="updateRoles">
+    <part name="parameters" element="tns:updateRoles" />
+  </message>
+  <message name="updateRolesResponse">
+    <part name="parameters" element="tns:updateRolesResponse" />
+  </message>
+  <message name="updateEmpresas">
+    <part name="parameters" element="tns:updateEmpresas" />
+  </message>
+  <message name="updateEmpresasResponse">
+    <part name="parameters" element="tns:updateEmpresasResponse" />
+  </message>
+  <message name="newsletter">
+    <part name="parameters" element="tns:newsletter" />
+  </message>
+  <message name="newsletterResponse">
+    <part name="parameters" element="tns:newsletterResponse" />
+  </message>
+  <message name="listEmpresas">
+    <part name="parameters" element="tns:listEmpresas" />
+  </message>
+  <message name="listEmpresasResponse">
+    <part name="parameters" element="tns:listEmpresasResponse" />
+  </message>
+  <message name="listRoles">
+    <part name="parameters" element="tns:listRoles" />
+  </message>
+  <message name="listRolesResponse">
+    <part name="parameters" element="tns:listRolesResponse" />
+  </message>
+  <message name="view">
+    <part name="parameters" element="tns:view" />
+  </message>
+  <message name="viewResponse">
+    <part name="parameters" element="tns:viewResponse" />
+  </message>
+  <message name="login">
+    <part name="parameters" element="tns:login" />
+  </message>
+  <message name="loginResponse">
+    <part name="parameters" element="tns:loginResponse" />
+  </message>
+  <message name="update">
+    <part name="parameters" element="tns:update" />
+  </message>
+  <message name="updateResponse">
+    <part name="parameters" element="tns:updateResponse" />
+  </message>
+  <message name="delete">
+    <part name="parameters" element="tns:delete" />
+  </message>
+  <message name="deleteResponse">
+    <part name="parameters" element="tns:deleteResponse" />
+  </message>
+  <message name="create">
+    <part name="parameters" element="tns:create" />
+  </message>
+  <message name="createResponse">
+    <part name="parameters" element="tns:createResponse" />
+  </message>
+  <message name="list">
+    <part name="parameters" element="tns:list" />
+  </message>
+  <message name="listResponse">
+    <part name="parameters" element="tns:listResponse" />
+  </message>
+  <portType name="Users">
+    <operation name="createFirstUser">
+      <input wsam:Action="http://api.febos.cl/Users/createFirstUserRequest" message="tns:createFirstUser" />
+      <output wsam:Action="http://api.febos.cl/Users/createFirstUserResponse" message="tns:createFirstUserResponse" />
+    </operation>
+    <operation name="passwordRecovery">
+      <input wsam:Action="http://api.febos.cl/Users/passwordRecoveryRequest" message="tns:passwordRecovery" />
+      <output wsam:Action="http://api.febos.cl/Users/passwordRecoveryResponse" message="tns:passwordRecoveryResponse" />
+    </operation>
+    <operation name="resetPassword">
+      <input wsam:Action="http://api.febos.cl/Users/resetPasswordRequest" message="tns:resetPassword" />
+      <output wsam:Action="http://api.febos.cl/Users/resetPasswordResponse" message="tns:resetPasswordResponse" />
+    </operation>
+    <operation name="getDashboard">
+      <input wsam:Action="http://api.febos.cl/Users/getDashboardRequest" message="tns:getDashboard" />
+      <output wsam:Action="http://api.febos.cl/Users/getDashboardResponse" message="tns:getDashboardResponse" />
+    </operation>
+    <operation name="updateRoles">
+      <input wsam:Action="http://api.febos.cl/Users/updateRolesRequest" message="tns:updateRoles" />
+      <output wsam:Action="http://api.febos.cl/Users/updateRolesResponse" message="tns:updateRolesResponse" />
+    </operation>
+    <operation name="updateEmpresas">
+      <input wsam:Action="http://api.febos.cl/Users/updateEmpresasRequest" message="tns:updateEmpresas" />
+      <output wsam:Action="http://api.febos.cl/Users/updateEmpresasResponse" message="tns:updateEmpresasResponse" />
+    </operation>
+    <operation name="newsletter">
+      <input wsam:Action="http://api.febos.cl/Users/newsletterRequest" message="tns:newsletter" />
+      <output wsam:Action="http://api.febos.cl/Users/newsletterResponse" message="tns:newsletterResponse" />
+    </operation>
+    <operation name="listEmpresas">
+      <input wsam:Action="http://api.febos.cl/Users/listEmpresasRequest" message="tns:listEmpresas" />
+      <output wsam:Action="http://api.febos.cl/Users/listEmpresasResponse" message="tns:listEmpresasResponse" />
+    </operation>
+    <operation name="listRoles">
+      <input wsam:Action="http://api.febos.cl/Users/listRolesRequest" message="tns:listRoles" />
+      <output wsam:Action="http://api.febos.cl/Users/listRolesResponse" message="tns:listRolesResponse" />
+    </operation>
+    <operation name="view">
+      <input wsam:Action="http://api.febos.cl/Users/viewRequest" message="tns:view" />
+      <output wsam:Action="http://api.febos.cl/Users/viewResponse" message="tns:viewResponse" />
+    </operation>
+    <operation name="login">
+      <input wsam:Action="http://api.febos.cl/Users/loginRequest" message="tns:login" />
+      <output wsam:Action="http://api.febos.cl/Users/loginResponse" message="tns:loginResponse" />
+    </operation>
+    <operation name="update">
+      <input wsam:Action="http://api.febos.cl/Users/updateRequest" message="tns:update" />
+      <output wsam:Action="http://api.febos.cl/Users/updateResponse" message="tns:updateResponse" />
+    </operation>
+    <operation name="delete">
+      <input wsam:Action="http://api.febos.cl/Users/deleteRequest" message="tns:delete" />
+      <output wsam:Action="http://api.febos.cl/Users/deleteResponse" message="tns:deleteResponse" />
+    </operation>
+    <operation name="create">
+      <input wsam:Action="http://api.febos.cl/Users/createRequest" message="tns:create" />
+      <output wsam:Action="http://api.febos.cl/Users/createResponse" message="tns:createResponse" />
+    </operation>
+    <operation name="list">
+      <input wsam:Action="http://api.febos.cl/Users/listRequest" message="tns:list" />
+      <output wsam:Action="http://api.febos.cl/Users/listResponse" message="tns:listResponse" />
+    </operation>
+  </portType>
+  <binding name="UsersPortBinding" type="tns:Users">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="createFirstUser">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="passwordRecovery">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="resetPassword">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getDashboard">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="updateRoles">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="updateEmpresas">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="newsletter">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listEmpresas">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listRoles">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="view">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="login">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="update">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="delete">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="create">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="list">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="UsersService">
+    <port name="UsersPort" binding="tns:UsersPortBinding">
+      <soap:address location="http://cert.febos.cl:80/FebosAPI/Users" />
+    </port>
+  </service>
+</definitions>
