@@ -176,7 +176,7 @@ namespace IatDteBridge
             file += "            XXX INICIO DOCUMENTO\n";
             file += "========== AREA IDENTIFICACION DEL DOCUMENTO\n";
             file += "Tipo Documento Tributario Electronico            : " + doc.TipoDTE +"\n";
-            file += "Folio Documento                                  : " + doc.Folio+"\n";
+            file += "Folio Documento                                  : " +"\n";
             file += "Fecha de Emision                                 : " + doc.FchEmis + "\n";
             file += "Indicador de No Rebaja                           : " + vacioSiCero(doc.IndNoRebaja.ToString()) + "\n";
             file += "Tipo de despacho                                 : " + vacioSiCero(doc.TipoDespacho.ToString()) + "\n";
@@ -203,7 +203,15 @@ namespace IatDteBridge
             file += "Codigo Terminos de Pago                          : " + "\n";
             file += "Glosa del Termino de Pago                        : " + "\n";
             file += "Dias del Termino de Pago                         : " + "\n";
-            file += "Fecha de Vencimiento                             : " + doc.FchVenc + "\n";
+            if (doc.TipoDTE == 52)
+            {
+                file += "Fecha de Vencimiento                             : " + "\n";
+            }
+            else
+            {
+                file += "Fecha de Vencimiento                             : " + doc.FchVenc + "\n";
+            }
+            
             file += "========== AREA EMISOR" + "\n";
             file += "Rut emisor                                       : " + doc.RUTEmisor + "\n";
             file += "Razon Social Emisor                              : " + doc.RznSoc + "\n";
@@ -585,24 +593,6 @@ namespace IatDteBridge
 
         // *********************************************
 
-        /*
-         
-
-
- 
-"Referencia":
-[
-{"NroLinRef": 0, 
-* "TpoDocRef": "SET", 
-* "IndGlobal": 0, 
-*          "FolioRef": "",  
-*          "RUTOtr": "", 
-*          "IdAdicOtr": "", 
-*          "FchRef": "", 
-*          "CodRef": 0, 
-*          "RazonRef": "CASO  311171-1"}
-], 
-*/
 
         private String lineaReferencia(ReferenciaDoc refe)
         {
@@ -621,7 +611,7 @@ namespace IatDteBridge
                 {
                     case 1: linea += refe.TpoDocRef;
                         break;
-                    case 2: linea += refe.IndGlobal;
+                    case 2: linea += "1";
                         break;
                     case 3: linea += refe.FolioRef;
                         break;

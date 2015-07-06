@@ -111,7 +111,7 @@ namespace IatDteBridge
             String data = objReader.ReadToEnd();
             String dataSend = setEncodeString(data);
 
-            Console.WriteLine(dataSend);
+          //  Console.WriteLine(dataSend);
             
             return dataSend;
         }
