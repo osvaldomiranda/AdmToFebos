@@ -121,7 +121,7 @@ namespace IatDteBridge
             // Inicia proceso IAt
             proc.StartProcessIat();
             
-            this.label4.Text = "IatProcess En Ejecución";
+            this.label4.Text = "AdmToFebos En Ejecución";
             this.timer1.Start();
         }
 
@@ -129,7 +129,7 @@ namespace IatDteBridge
         private void button3_Click(object sender, EventArgs e)
         {
             proc.StartProcessIat();
-            this.label4.Text = "IatProcess En Ejecución";
+            this.label4.Text = "AdmToFebos En Ejecución";
             this.timer1.Start();
 
             procContig.StartProcessConting();
@@ -306,7 +306,7 @@ namespace IatDteBridge
         {
             proc.StopProcessIat();
             procContig.StopProcessConting();
-            this.label4.Text = "IatProcess Detenido";
+            this.label4.Text = "AdmToFebos Detenido";
             this.timer1.Stop();
 
         }

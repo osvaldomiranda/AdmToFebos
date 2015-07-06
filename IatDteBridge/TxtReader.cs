@@ -176,7 +176,7 @@ namespace IatDteBridge
             file += "            XXX INICIO DOCUMENTO\n";
             file += "========== AREA IDENTIFICACION DEL DOCUMENTO\n";
             file += "Tipo Documento Tributario Electronico            : " + doc.TipoDTE +"\n";
-            file += "Folio Documento                                  : \n";
+            file += "Folio Documento                                  : " + doc.Folio+"\n";
             file += "Fecha de Emision                                 : " + doc.FchEmis + "\n";
             file += "Indicador de No Rebaja                           : " + vacioSiCero(doc.IndNoRebaja.ToString()) + "\n";
             file += "Tipo de despacho                                 : " + vacioSiCero(doc.TipoDespacho.ToString()) + "\n";
@@ -381,46 +381,19 @@ namespace IatDteBridge
             
             // 30 lineas de referencia
 
-            file += "                                                                                                                           " + "\n";
-            file += "                                                                                                                           " + "\n";
-            file += "                                                                                                                           " + "\n";
-            file += "                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
-            file += "                                                                                                                                           " + "\n";
+            foreach (var referencia in doc.Referencia)
+            {
+                file += lineaReferencia(referencia) + "\n";
+            }
+
+            Console.WriteLine("LINEAS DE REFERENCIA ******************" + doc.Referencia.Count());
+
+            for (int i = 0; i < 40 - doc.Referencia.Count(); i++)
+            {
+                file += "                                                                                                                                           " + "\n";
+            }
+
+
             file += "========== COMISIONES Y OTROS CARGOS" + "\n";
             file += "" + "\n";
             file += "" + "\n";
@@ -447,9 +420,9 @@ namespace IatDteBridge
             file += "Condicion Venta                                  : " + "\n";
             file += "OC o GD                                          : " + "\n";
             file += "Vendedor                                         : " + doc.NomVendedor + "\n";
-            file += "CodigoSAP                                        : 1"+ "\n";
+            file += "CodigoSAP                                        : 1" + "\n";
             file += "Observaciones                                    : " + "\n";
-            file += "                                                 : " + "\n";
+            file += "Impresora                                        : 192.168.1.33" + "\n";
             file += "                                                 : " + "\n";
             file += "                                                 : " + "\n";
             file += "                                                 : " + "\n";
@@ -469,28 +442,7 @@ namespace IatDteBridge
             return file;
         }
 
-/*
-         
-Tipo de Documento de Referencia		1	3	3	COND	COND	OBLIG	OBLIG	
-Indicador de Referencia Global		4	4	1	COND	COND	COND	COND	
-FOLIO de Referencia		5	22	18	COND	COND	OBLIG	OBLIG	
-FECHA de la Referencia		23	32	10	COND	COND	OBLIG	OBLIG	aaaa-mm-dd
-Código de Referencia		33	33	1	COND	COND	OBLIG	OBLIG	
-Razón Referencia		34	123	90	COND	COND	OPCION	OPCION	
 
-    "Referencia":
-    [
-      {"NroLinRef": 0, 
-         * "TpoDocRef": "SET", 
-         * "IndGlobal": 0, 
- *          "FolioRef": "",  
- *          "RUTOtr": "", 
- *          "IdAdicOtr": "", 
- *          "FchRef": "", 
- *          "CodRef": 0, 
- *          "RazonRef": "CASO  311171-1"}
-    ], 
-    */
 
         private String vacioSiCero(String valor)
         {
@@ -631,8 +583,117 @@ Razón Referencia		34	123	90	COND	COND	OPCION	OPCION
             return pos;
         }
 
-        
+        // *********************************************
 
+        /*
+         
+
+
+ 
+"Referencia":
+[
+{"NroLinRef": 0, 
+* "TpoDocRef": "SET", 
+* "IndGlobal": 0, 
+*          "FolioRef": "",  
+*          "RUTOtr": "", 
+*          "IdAdicOtr": "", 
+*          "FchRef": "", 
+*          "CodRef": 0, 
+*          "RazonRef": "CASO  311171-1"}
+], 
+*/
+
+        private String lineaReferencia(ReferenciaDoc refe)
+        {
+            List<PosLinea> pos = new List<PosLinea>();
+            pos = posReferencia();
+
+            String linea = String.Empty;
+            String filler;
+            int i = 0;
+            foreach (var p in pos)
+            {
+                filler = String.Empty;
+                i++;
+                if (i == 1) { linea += espacios(p.posicion); }
+                switch (i)
+                {
+                    case 1: linea += refe.TpoDocRef;
+                        break;
+                    case 2: linea += refe.IndGlobal;
+                        break;
+                    case 3: linea += refe.FolioRef;
+                        break;
+                    case 4: linea += refe.FchRef;
+                        break;
+                    case 5: linea += refe.CodRef;
+                        break;
+                    case 6: linea += refe.RazonRef;
+                        break;
+                  
+                }
+
+                int posx = linea.Length;
+                filler += espacios(p.siguiente - posx);
+
+                // Console.WriteLine(" posicion:" + p.posicion + " siguiente:" + p.siguiente + " linea:" + linea.Length+" filer:"+filler.Length);
+
+                linea += filler;
+            }
+            return linea;
+        }
+
+
+        public List<PosLinea> posReferencia()
+        {
+
+            List<PosLinea> pos = new List<PosLinea>();
+             
+            // Tipo de Documento de Referencia 
+            PosLinea pos1 = new PosLinea();
+            pos1.posicion = 1;
+            pos1.siguiente = 4;
+            pos1.largo = 3;
+            pos.Add(pos1);
+
+            // Indicador de Referencia Global 
+            PosLinea pos2 = new PosLinea();
+            pos2.posicion = 4;
+            pos2.siguiente = 5;
+            pos2.largo = 1;
+            pos.Add(pos2);
+
+            // FOLIO de Referencia 
+            PosLinea pos3 = new PosLinea();
+            pos3.posicion = 5;
+            pos3.siguiente = 23;
+            pos3.largo = 22;
+            pos.Add(pos3);
+
+            // FECHA de la Referencia
+            PosLinea pos4 = new PosLinea();
+            pos4.posicion = 23;
+            pos4.siguiente = 33;
+            pos4.largo = 32;
+            pos.Add(pos4);
+
+            // Código de Referencia
+            PosLinea pos5 = new PosLinea();
+            pos5.posicion = 33;
+            pos5.siguiente = 34;
+            pos5.largo = 1;
+            pos.Add(pos5);
+
+            // Razón Referencia
+            PosLinea pos6 = new PosLinea();
+            pos6.posicion = 34;
+            pos6.siguiente = 123;
+            pos6.largo = 90;
+            pos.Add(pos6);
+
+            return pos;
+        }
     }
 
     class PosLinea
@@ -641,6 +702,9 @@ Razón Referencia		34	123	90	COND	COND	OPCION	OPCION
         public int largo { set; get; }
         public int siguiente { set; get; }
     }
+
+
+
 
 
 
