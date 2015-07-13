@@ -405,7 +405,7 @@ namespace IatDteBridge
             
             // 40 lineas de referencia
 
-            if (doc.TipoDTE != 39)
+       /*     if (doc.TipoDTE != 39)
             {
 
                 foreach (var referencia in doc.Referencia)
@@ -422,12 +422,13 @@ namespace IatDteBridge
             }
             else
             {
+        */
                 for (int i = 0; i < 40; i++)
                 {
                     file += "                                                                                                                                           " + "\n";
                 }
 
-            }
+         //   }
 
             file += "========== COMISIONES Y OTROS CARGOS" + "\n";
             file += "" + "\n";
