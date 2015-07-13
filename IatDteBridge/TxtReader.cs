@@ -185,7 +185,7 @@ namespace IatDteBridge
             file += "Indicador de servicio                            : " + vacioSiCero(doc.IndServicio.ToString()) + "\n";
             file += "Indicador de Montos Brutos                       : " + "\n";
             file += "Indicador de Montos Netos                        : " + "\n";
-            if (doc.TipoDTE == 39)
+            if (doc.TipoDTE == 39 || doc.FmaPago==0)
             {
                 file += "Forma de Pago                                    : " + "\n";
             }
@@ -405,30 +405,31 @@ namespace IatDteBridge
             
             // 40 lineas de referencia
 
-       /*     if (doc.TipoDTE != 39)
+            if (doc.TipoDTE !=39)
             {
-
+                int countReferencia = 0;
                 foreach (var referencia in doc.Referencia)
                 {
-                    file += lineaReferencia(referencia) + "\n";
+                    if(referencia.NroLinRef !=0){
+                        file += lineaReferencia(referencia) + "\n";
+                        countReferencia++;
+                    }
                 }
 
                 Console.WriteLine("LINEAS DE REFERENCIA ******************" + doc.Referencia.Count());
 
-                for (int i = 0; i < 40 - doc.Referencia.Count(); i++)
+                for (int i = 0; i < 40 - countReferencia; i++)
                 {
                     file += "                                                                                                                                           " + "\n";
                 }
             }
             else
             {
-        */
                 for (int i = 0; i < 40; i++)
                 {
                     file += "                                                                                                                                           " + "\n";
                 }
-
-         //   }
+            }
 
             file += "========== COMISIONES Y OTROS CARGOS" + "\n";
             file += "" + "\n";
