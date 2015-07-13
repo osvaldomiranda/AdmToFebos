@@ -185,7 +185,15 @@ namespace IatDteBridge
             file += "Indicador de servicio                            : " + vacioSiCero(doc.IndServicio.ToString()) + "\n";
             file += "Indicador de Montos Brutos                       : " + "\n";
             file += "Indicador de Montos Netos                        : " + "\n";
-            file += "Forma de Pago                                    : " + doc.FmaPago +"\n";
+            if (doc.TipoDTE == 39)
+            {
+                file += "Forma de Pago                                    : " + "\n";
+            }
+            else
+            {
+                file += "Forma de Pago                                    : " + doc.FmaPago + "\n";
+            }
+
             file += "Forma de Pago Exportacion                        : " + "\n";
             file += "Fecha de Cancelacion                             : " + "\n";
             file += "Monto Cancelado                                  : " + "\n";
@@ -232,7 +240,15 @@ namespace IatDteBridge
             file += "Identificador Adicional del Emisor               : " + "\n";
             file += "Rut Mandante                                     : " + doc.RUTMandante + "\n";
             file += "========== AREA RECEPTOR" + "\n";
-            file += "Rut Receptor                                     : " + doc.RUTRecep + "\n";
+            if (doc.TipoDTE == 39)
+            {
+                file += "Rut Receptor                                     : 66666666-6" + "\n";
+            }
+            else
+            {
+                file += "Rut Receptor                                     : " + doc.RUTRecep + "\n";
+            }
+
             file += "Codigo interno Receptor                          : " + "\n";
             file += "Nombre o Razon Social Receptor                   : " + doc.RznSocRecep + "\n";
             file += "Numero Identificador Receptor Extranjero         : " + "\n";
@@ -387,20 +403,31 @@ namespace IatDteBridge
             file += "" + "\n";
             file += "========== INFORMACION DE REFERENCIA" + "\n";
             
-            // 30 lineas de referencia
+            // 40 lineas de referencia
 
-            foreach (var referencia in doc.Referencia)
+            if (doc.TipoDTE != 39)
             {
-                file += lineaReferencia(referencia) + "\n";
+
+                foreach (var referencia in doc.Referencia)
+                {
+                    file += lineaReferencia(referencia) + "\n";
+                }
+
+                Console.WriteLine("LINEAS DE REFERENCIA ******************" + doc.Referencia.Count());
+
+                for (int i = 0; i < 40 - doc.Referencia.Count(); i++)
+                {
+                    file += "                                                                                                                                           " + "\n";
+                }
             }
-
-            Console.WriteLine("LINEAS DE REFERENCIA ******************" + doc.Referencia.Count());
-
-            for (int i = 0; i < 40 - doc.Referencia.Count(); i++)
+            else
             {
-                file += "                                                                                                                                           " + "\n";
-            }
+                for (int i = 0; i < 40; i++)
+                {
+                    file += "                                                                                                                                           " + "\n";
+                }
 
+            }
 
             file += "========== COMISIONES Y OTROS CARGOS" + "\n";
             file += "" + "\n";
@@ -424,7 +451,7 @@ namespace IatDteBridge
             file += "" + "\n";
             file += "" + "\n";
             file += "========== CAMPOS PERSONALIZADOS" + "\n";
-            file += "Monto Palabras                                   : MIL TRES CIENTOS SESENTA Y CINCO" + "\n";
+            file += "Monto Palabras                                   : " + "\n";
             file += "Condicion Venta                                  : " + "\n";
             file += "OC o GD                                          : " + "\n";
             file += "Vendedor                                         : " + doc.NomVendedor + "\n";
@@ -611,7 +638,7 @@ namespace IatDteBridge
                 {
                     case 1: linea += refe.TpoDocRef;
                         break;
-                    case 2: linea += "1";
+                    case 2: linea += " "; //indicador de globalidad
                         break;
                     case 3: linea += refe.FolioRef;
                         break;
