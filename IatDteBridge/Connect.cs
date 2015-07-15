@@ -133,20 +133,22 @@ namespace IatDteBridge
             string pass = "admsistemas143";
             String stringConn = "DRIVER={MySQL ODBC 3.51 Driver}; SERVER=" + server + "; PORT=3306; DATABASE=" + database + "; USER=" + user + "; PASSWORD=" + pass + "; OPTION=0;";
             OdbcConnection conn = new OdbcConnection(stringConn);
-
+            
+            
             String updateSql = " update cabezalventas " +
                                 " set nro_fiscal= " + folioFebos +", id_febos = '"+ febosID +"' " +
                                 " where cod_empresa=1 and cod_sucursal="+ "1" +" and tipo_cargo="+doc.TipoDTE+" and nro_cargo="+ doc.Folio +
                                 " and nro_abono=0;";
 
-                                    /*
-                #Para notas de credito
-                update cabezalventas    
-                set nro_abono=2222, id_febos = '335656898sdasdfd546546'
-                where cod_empresa=1 and cod_sucursal_abono=1 and tipo_abono=61 and
-                nro_abono=1111 and tipodefactura > 0;"
-                                    */
-
+            if (doc.TipoDTE == 61)
+            {
+                //#Para notas de credito
+                updateSql = " update cabezalventas "
+                           + " set nro_abono="+ folioFebos +", id_febos = '"+ febosID +"' "
+                           + " where cod_empresa=1 and cod_sucursal_abono=1 and tipo_abono=61 and "
+                           + " nro_abono="+ doc.Folio +" and tipodefactura > 0;" ;
+            }
+                  
             OdbcCommand command = new OdbcCommand(updateSql, conn);
             try
             {
